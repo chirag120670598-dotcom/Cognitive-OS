@@ -29,3 +29,10 @@ Interpretability probes monitoring internal representations.
 
 ## Original Insight
 Differentiable governance: safety is trained end-to-end, not filtered externally.
+
+## Technical Details
+- Base architecture: Sparse mixture of transformers (1.8T params, 370B active)
+- KV-cache: 128K context with RingAttention for beyond-128K scaling
+- Training: 3-stage (pretrain, RLHF, constitutional fine-tuning)
+- Inference: Speculative decoding with 2x throughput
+- Memory bandwidth: 900 GB/s HBM3 for fast-weight retrieval

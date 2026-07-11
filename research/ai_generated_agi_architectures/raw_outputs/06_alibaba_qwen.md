@@ -21,3 +21,9 @@ Circuit breakers for fault isolation.
 ## Original Insight
 Cognitive microservices: AGI as federation of specialized models.
 Each function independently scalable. Not monolithic.
+## Technical Details
+- Service mesh: Istio-based cognitive bus with 1ms latency
+- Each service: Specialized 7B-72B parameter model
+- Orchestrator: 70B model routing to 20+ cognitive services
+- Scaling: Horizontal pod autoscaling per service
+- Fault tolerance: Circuit breakers, retry queues, dead-letter topics per cognitive function

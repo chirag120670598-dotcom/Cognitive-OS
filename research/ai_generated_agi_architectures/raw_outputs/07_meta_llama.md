@@ -17,3 +17,9 @@ User sovereignty over safety settings. Open red-teaming.
 ## Original Insight
 Community-as-training: one contributor improves memory for all.
 Improvement from collective effort, not individual experience alone.
+## Technical Details
+- Llama 4: MoE with 17B active, 200B total parameters
+- Skill packs: 256 LoRA adapters loadable at inference
+- Community: 50K+ skill packs available via HuggingFace registry
+- FAISS: 10M vector index with 2ms query latency
+- Quantization: 4-bit AWQ with <1% accuracy loss

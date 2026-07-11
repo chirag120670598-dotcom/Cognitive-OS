@@ -27,3 +27,9 @@ Corrigibility. Interpretability by design.
 
 ## Original Insight
 No separate planner or actor. All cognition is inference in the world model.
+## Technical Details
+- MoE: 64 experts with 2 active per token (2.5T total, 230B active)
+- Multi-modal: Joint training on text, image, audio, video, code
+- Pathways: Sparse activation across 10K+ TPU pods
+- Ultra 1.0: Architecture search discovered optimal model shape
+- Long context: 10M token context with Infini-Attention

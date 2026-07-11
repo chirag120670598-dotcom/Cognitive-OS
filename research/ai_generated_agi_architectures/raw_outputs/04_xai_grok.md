@@ -21,3 +21,9 @@ Uncertainty honesty. Online deception monitoring.
 ## Original Insight
 Truth-seeking as primary reward. True beliefs lead to better decisions.
 Truth is the universal instrumental goal.
+## Technical Details
+- Real-time: Sub-100ms causal inference pipeline
+- Causal discovery: PC algorithm + NOTEARS for structure learning
+- Truth reward: Verified via consistency checks across 10+ random seeds
+- Data: Continuous real-time web data with causal annotation
+- Infrastructure: 100K H100 cluster with custom networking

@@ -28,3 +28,10 @@ Self-auditing. Capability corral: architectural limits, not behavioral.
 
 ## Original Insight
 Constitutional bootstrapping: principles as self-improvement objective.
+
+## Technical Details
+- Constitutional AI: 16 core principles as differentiable constraints
+- harmlessness: RL from constitutional feedback (RLCF) replacing RLHF
+- Interpretability: Cross-layer transcoders for feature visualization
+- Scaling: 1M token context via rotary position interpolation
+- Self-play: Constitutional debate between model instances for capability gain

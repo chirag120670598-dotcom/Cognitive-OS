@@ -21,3 +21,9 @@ Failed executions trigger re-selection.
 ## Original Insight
 Dynamic reasoning depth: some problems need 2 steps, others 200.
 The system learns to predict required depth before starting.
+## Technical Details
+- MoE: 256 experts, 8 active per token (1T total, 37B active)
+- Multi-token prediction (MTP): predicts 4 tokens at once for 2x training efficiency
+- GRPO: Group Relative Policy Optimization without critic model
+- Reasoning budget: Dynamic depth from 1 to 256 reasoning steps
+- Cost: 1/30th of GPT-4 equivalent per token
