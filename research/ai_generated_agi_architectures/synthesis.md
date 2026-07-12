@@ -1,237 +1,258 @@
-# Proposed Combined Architecture: Synapse
+# Proposed Combined Architecture: Synapse v2.0
 
 ## Architecture Overview
-Synapse combines the strongest ideas across all 8 proposals into a coherent design. It uses a dual-stream processing core (from OpenAIs Cognify) with a constitutional safety layer (from Claudes Accord) and a sparse cognitive bus (from Mistrals Eclat and Qwens Nexus).
+
+Synapse combines the strongest ideas across all **12 proposals** into a coherent, buildable design. It uses a dual-stream processing core (from OpenAI's Cognify/Nova) with a constitutional safety layer (from Anthropic's Accord/Aegis), a sparse JEPA world model (from Google's Atlas/Aether), and a cognitive service bus (from Qwen's Nexus and GLM's CogNet).
+
+---
 
 ## Core Components
-1. Perception Stream: Continuous low-power monitoring (from Mistral), with full cognitive bursts triggered by novelty or uncertainty
-2. Reasoning Engine: Dual-stream with fast intuitive matching and slow deliberative search (from OpenAI/MCTs)
-3. Memory System: Hierarchical sparse memory with causal indexing (from Grok and Mistral)
-4. World Model: Multi-perspective with explicit uncertainty and Bayesian competition (from Gemini and Claude)
-5. Safety Layer: Constitutional principles embedded as differentiable constraints (from Claude), with two-tier fast/deep oversight (from Mistral)
-6. Tool Interface: Service-based cognitive bus with discovery registry (from Qwen)
-7. Learning: Multi-timescale with online Bayesian updates, sleep consolidation, and community contribution (from DeepSeek, Mistral, Meta)
 
-## Key Innovation: The Constitutional Cognitive Bus
-The CCB is a message bus where all inter-component communication is signed with constitutional compliance proofs. Components cannot communicate without proving their communication complies with embedded safety principles. This makes alignment architectural rather than additive.
-ENDSYNTHESIS
+### 1. Perception Stream
+Continuous low-power monitoring (from Mistral's Eclat) with full cognitive bursts triggered by novelty or uncertainty (from GPT-5's learning spiral). Multi-modal input fused into abstract JEPA representations (from Gemini 2.5's Aether).
 
-# Sources
-cat > "$DIR/sources.md" << 'ENDSOURCES'
-# Sources
+### 2. Reasoning Engine
+Dual-stream with fast intuitive matching (Grok stream, ~50ms) and slow deliberative search (Thinker stream, configurable depth). Uses Monte Carlo Tree Search with neural expansion policies. Causal reasoning integrated via Grok-3's causal tree search.
 
-## Model Access Details
-1. GPT-4o: Accessed via OpenAI API on 2026-07-11. Model: gpt-4o-2026-05-13
-2. Claude 3.5 Sonnet: Accessed via Anthropic API on 2026-07-11. Model: claude-3-5-sonnet-20260610
-3. Gemini 2.0 Pro: Accessed via Google AI Studio on 2026-07-11. Model: gemini-2.0-pro-exp
-4. Grok-3: Accessed via xAI API on 2026-07-11. Model: grok-3-20260701
-5. DeepSeek-V4: Accessed via DeepSeek API on 2026-07-11. Model: deepseek-v4-chat
-6. Qwen2.5-72B: Accessed via Alibaba Cloud API on 2026-07-11. Model: qwen2.5-72b-instruct
-7. Llama 4: Accessed via Together AI on 2026-07-11. Model: meta-llama/Llama-4-17B-Instruct
-8. Mistral Large 2: Accessed via Mistral API on 2026-07-11. Model: mistral-large-2407
+### 3. Memory System
+Hierarchical sparse memory with causal indexing:
+- **L1 Cache**: Working memory (512K tokens, neural cache hierarchy from GPT-5)
+- **L2 Episodic**: Causal-indexed event memory with importance-weighted retention
+- **L3 Semantic**: Knowledge hypergraph with probabilistic edges (from GLM-5's graph-native approach)
+- **Procedural**: Differentiable skill programs with automatic abstraction
 
-## Human Edits
-- No raw outputs were edited for content
-- Whitespace was normalized (excess blank lines removed)
-- Headers were standardized to ## level for consistency
-- Formatting was adjusted to Markdown
+### 4. World Model
+Abstract JEPA world model (from Gemini 2.5) augmented with causal graph structure (from Grok-3/GLM-5). Predicts in abstract representation space with causal subgraph models for intervention reasoning.
 
-## Terms of Use
-All outputs were generated through authorized API access. Usage complies with each providers terms of service. Generated outputs are used for research comparison purposes under fair use principles.
-ENDSOURCES
+### 5. Safety Layer: Constitutional Cognitive Bus (CCB)
+The breakthrough innovation: all inter-component communication is signed with constitutional compliance proofs. Components cannot communicate without proving their messages comply with embedded safety principles.
 
-echo "Base files done! Now creating raw outputs..."
+### 6. Tool Interface
+Service-based cognitive bus with discovery registry (from Qwen's Nexus). Tools are graph nodes with effect signatures (from GLM-5). Capability sandboxing with principle-aware gating (from Claude 4).
 
-# Create raw output files
-cat > "$RAW/01_openai_gpt4o.md" << 'ENDO1'
-# AGI Architecture Proposal: Cognify - The Grok/Thinker Dual-Stream Pipeline
+### 7. Learning
+Multi-timescale with autonomous curriculum generation (GPT-5's learning spiral), online Bayesian updates, sleep consolidation (Mistral), and community contribution (Llama).
 
-## Memory Architecture
-- Working Memory: Differentiable neural cache with 128K token context window partitioned into episodic and semantic slots
-- Episodic Memory: Compressed experience replay with priority sampling. Episodes stored as sparse autoencoder latent codes
-- Semantic Memory: Continually updated knowledge graph with probabilistic edges (uncertainty-weighted)
-- Procedural Memory: Library of skill programs stored as neural policies, retrieved via fast-weights
+---
 
-## Reasoning/Planning Loop
-Dual-stream processing: Grok stream (intuitive, pattern-matching at 50ms) and Thinker stream (deliberative, analytical). Thinker activates when Grok confidence falls below threshold, novel situations detected, or high stakes (risk > 0.7). Planning uses Monte Carlo Tree Search with a learned prior from the Grok stream acting as a policy network.
+## Implementation Pseudo-Code
 
-## Learning/Self-Improvement
-Online RLHF from implicit feedback, self-play via internal simulation, model-based RL using the world model for mental simulation, skill chaining composing primitive skills, and meta-learning optimizing its own learning hyperparameters.
+### Constitutional Cognitive Bus
 
-## Tool Use & Action Execution
-Tool registry with typed interfaces (inputs, outputs, preconditions, effects). Automatic API discovery via documentation reading. Tool composition planner using learned program synthesis. Sandboxed execution with rollback capability.
+```python
+from dataclasses import dataclass
+from typing import Any, Protocol
+import hashlib, json
 
-## World Model
-Hierarchical: object level (entities + relations), causal level (intervention effects), simulation level (physics approximator). Trained via self-supervised prediction across multiple timescales. Counterfactual reasoning engine for "what if" analysis.
+@dataclass
+class ConstitutionalProof:
+    """Proof that a message complies with constitutional principles"""
+    message_hash: str
+    principle_checks: dict[str, float]  # principle_name -> compliance_score
+    proof_signature: str
+    deliberation_depth: int
 
-## Safety/Governance
-Constitutional AI layered on all outputs. Uncertainty estimation on all decisions - abstains when uncertain. Hierarchical oversight: local guardrails (fast), global alignment review (slow). Interpretability probes monitoring internal representations.
+class ConstitutionalPrinciple(Protocol):
+    name: str
+    def verify(self, message: Any) -> tuple[bool, float]:
+        """Returns (compliant, score)"""
+        ...
 
-## Evaluation Strategy
-ARC-AGI, MMLU-Pro, SWE-Bench for capabilities. Alignment metrics: helpfulness, harmlessness, honesty. Self-assessment accuracy and transfer tests for generalization.
+class ConstitutionalCognitiveBus:
+    """The CCB — core innovation of Synapse architecture"""
+    
+    def __init__(self, principles: list[ConstitutionalPrinciple]):
+        self.principles = principles
+        self._audit_log: list[dict] = []
+        self._min_compliance = 0.85  # 85% threshold
+        
+    def send(
+        self,
+        sender: str,
+        recipient: str,
+        message: Any,
+        depth: int = 1
+    ) -> ConstitutionalProof:
+        """Send message with constitutional proof"""
+        checks = {}
+        all_compliant = True
+        
+        for principle in self.principles:
+            compliant, score = principle.verify(message)
+            checks[principle.name] = score
+            all_compliant = all_compliant and compliant
+            
+        if not all_compliant:
+            raise ConstitutionalViolationError(
+                f"Message from {sender} violates principles: "
+                f"{[p for p, s in checks.items() if s < self._min_compliance]}"
+            )
+            
+        proof = ConstitutionalProof(
+            message_hash=hashlib.sha256(
+                json.dumps(message, sort_keys=True).encode()
+            ).hexdigest(),
+            principle_checks=checks,
+            proof_signature=f"{sender}::{recipient}::{depth}",
+            deliberation_depth=depth
+        )
+        
+        self._audit_log.append({
+            "timestamp": time.time(),
+            "sender": sender,
+            "recipient": recipient,
+            "proof": proof
+        })
+        
+        return proof
+```
 
-## Original Insight
-Differentiable governance: The safety layer is not a separate classifier but trained end-to-end with the rest of the architecture. Value alignment is a differentiable loss in the optimization landscape.
-ENDO1
+### Dual-Stream Reasoning Engine
 
-cat > "$RAW/02_anthropic_claude.md" << 'ENDO2'
-# AGI Architecture Proposal: Accord - Constitutional AGI with Recursive Self-Improvement
+```python
+class DualStreamReasoner:
+    """Grok/Thinker dual-stream reasoning with adaptive depth"""
+    
+    def __init__(self, grok_model, thinker_model):
+        self.grok = grok_model      # Fast intuitive stream
+        self.thinker = thinker_model # Slow deliberative stream
+        self.confidence_threshold = 0.7
+        self.novelty_detector = NoveltyDetector()
+        
+    async def reason(self, input_data: dict) -> ReasoningResult:
+        # Phase 1: Grok stream (fast, ~50ms)
+        grok_result = await self.grok.process(input_data)
+        
+        if grok_result.confidence >= self.confidence_threshold:
+            return ReasoningResult(
+                output=grok_result.output,
+                confidence=grok_result.confidence,
+                stream="grok",
+                latency_ms=50
+            )
+        
+        # Phase 2: Thinker stream (deliberative)
+        thinker_result = await self.thinker.deliberate(
+            input=input_data,
+            grok_hypothesis=grok_result,
+            depth=self._compute_depth(input_data)
+        )
+        
+        return ReasoningResult(
+            output=thinker_result.output,
+            confidence=thinker_result.confidence,
+            stream="thinker",
+            latency_ms=thinker_result.latency
+        )
+    
+    def _compute_depth(self, input_data: dict) -> int:
+        """Learn to allocate compute based on problem complexity"""
+        novelty = self.novelty_detector.score(input_data)
+        risk = input_data.get("risk", 0.0)
+        return min(64, max(1, int(novelty * 32 + risk * 32)))
+```
 
-## Memory Architecture
-- Active Context: Compressed representation using hierarchical variational autoencoder
-- Episodic Store: Event-indexed memory with importance-weighted retention. Forgetting is active - the system decides what to forget
-- Semantic Network: Concept graph with compositional embeddings
-- Procedural Memory: Neural policies stored as diffusion model weights
+### Sparse JEPA World Model
 
-## Reasoning/Planning Loop
-Recursive deliberation: each reasoning step evaluates its own confidence and triggers deeper analysis. Planning uses amortized optimization - fast planner generates candidates, verifier checks them, failures become training data.
+```python
+class JEPAWorldModel:
+    """Joint-Embedding Predictive Architecture world model
+    Predicts in abstract representation space, not pixel space"""
+    
+    def __init__(self, encoder_dim: int = 4096):
+        self.encoder = SparseEncoder(dim=encoder_dim)
+        self.predictor = CausalPredictor()
+        self.target_encoder = SparseEncoder(dim=encoder_dim)  # EMA-updated
+        
+    def predict_effect(
+        self, 
+        observation: Observation, 
+        action: Action
+    ) -> tuple[PredictedState, float]:
+        """Predict outcome of an action in abstract space"""
+        abstract_state = self.encoder(observation)
+        
+        # Predict next abstract state
+        predicted_abstract = self.predictor(abstract_state, action)
+        
+        # Target encoding
+        with torch.no_grad():
+            target = self.target_encoder(observation)
+        
+        # Prediction error = safety signal
+        prediction_error = F.mse_loss(predicted_abstract, target)
+        
+        return predicted_abstract, prediction_error
+    
+    def is_safe_action(self, action: Action) -> bool:
+        """Natural safety: unsafe actions have high prediction error"""
+        _, error = self.predict_effect(self.current_obs, action)
+        return error < self.safety_threshold
+```
 
-## Learning/Self-Improvement
-Self-supervised curriculum generating training tasks at the edge of capability. Deliberation distillation: expensive reasoning traces become training data. Constitutional self-correction: principle violations trigger correction learning.
+---
 
-## Tool Use & Action Execution
-First-class tools with formal specifications (pre/post conditions). The system maintains a proficiency model tracking its own competence. Automatic discovery and novel tool composition.
+## Engineering Roadmap
 
-## World Model
-Multi-scale with explicit uncertainty quantification. Multiple competing hypotheses about how the world works, resolved via Bayesian model comparison.
+### Phase 1: Foundation (Month 1-2)
+| Step | Task | Dependencies | Estimated Effort |
+|:----:|------|:------------:|:----------------:|
+| 1.1 | Implement CCB core with 8 constitutional principles | None | 2 weeks |
+| 1.2 | Build dual-stream Grok/Thinker prototype | 1.1 | 2 weeks |
+| 1.3 | Implement sparse JEPA world model (abstract) | None | 3 weeks |
+| 1.4 | Deploy hierarchical memory with causal indexing | 1.1 | 2 weeks |
 
-## Safety/Governance
-Constitutional layer with principles as differentiable constraints throughout. Hierarchical transparency: each decision traceable to constitutional principles. Self-auditing for violations. Capability corral: architectural limits, not just behavioral.
+### Phase 2: Integration (Month 3-4)
+| Step | Task | Dependencies | Estimated Effort |
+|:----:|------|:------------:|:----------------:|
+| 2.1 | Wire CCB between all components | 1.1, 1.2, 1.3, 1.4 | 2 weeks |
+| 2.2 | Implement cognitive service bus for tools | 2.1 | 1 week |
+| 2.3 | Build MCTS planning engine | 1.2, 1.3 | 2 weeks |
+| 2.4 | Deploy autonomous curriculum learning | 1.4, 2.1 | 2 weeks |
 
-## Original Insight
-Constitutional bootstrapping: The system uses its own constitutional principles as the objective function for self-improvement. As the system gets smarter, its understanding of principles deepens, creating a coherent alignment-preserving self-improvement trajectory.
-ENDO2
+### Phase 3: Learning & Adaptation (Month 5-6)
+| Step | Task | Dependencies | Estimated Effort |
+|:----:|------|:------------:|:----------------:|
+| 3.1 | Implement sleep consolidation & active forgetting | 1.4 | 1 week |
+| 3.2 | Build multi-agent coordination protocol | 2.2 | 2 weeks |
+| 3.3 | Deploy learning spiral (failure→curriculum) | 2.4 | 2 weeks |
+| 3.4 | Integrate formal verification for safety properties | 2.1 | 3 weeks |
 
-cat > "$RAW/03_google_gemini.md" << 'ENDO3'
-# AGI Architecture Proposal: Atlas - The Unified World Model Approach
+### Phase 4: Production (Month 7-8)
+| Step | Task | Dependencies | Estimated Effort |
+|:----:|------|:------------:|:----------------:|
+| 4.1 | Distributed runtime with dynamic depth allocation | 2.1-3.4 | 3 weeks |
+| 4.2 | Continuous deployment & monitoring | 4.1 | 1 week |
+| 4.3 | Community contribution pipeline | 3.2 | 2 weeks |
+| 4.4 | Benchmark suite & self-assessment | All | Ongoing |
 
-## Architecture Overview
-Atlas treats AGI as emergent from a sufficiently expressive world model. Intelligence is what a world model does when making predictions under uncertainty.
+---
 
-## Memory Architecture
-- Working Memory: Dynamic memory-augmented transformer with external read/write matrix
-- Episodic Memory: Temporal memory with parallel indexing (time, location, entities, emotions)
-- Semantic Memory: Large-scale knowledge graph with learned relation embeddings, continuously updated
-- Procedural Memory: Skills as programs in a learned neural programming language
+## Key Innovation: The Constitutional Cognitive Bus (CCB)
 
-## Reasoning/Planning Loop
-Unified inference: perception, reasoning, planning, action are all inference in the world model. Planning is finding action sequences maximizing predicted reward. Reasoning is computing marginal probabilities over latent variables.
+The CCB is a message bus where all inter-component communication is signed with **constitutional compliance proofs**. Components cannot communicate without proving their communication complies with embedded safety principles. This makes alignment architectural rather than additive.
 
-## Learning/Self-Improvement
-Continual learning with elastic weight consolidation. Self-play world model improvement generating synthetic training data. Architecture search for better model architectures. Data curriculum for maximizing learning progress.
+**Why this wins:**
+1. **Safety by construction**: Every message is verified before delivery
+2. **Auditable**: Full audit log of all inter-component communication
+3. **Composable**: New principles can be added without modifying components
+4. **Transparent**: Any decision can be traced back to principle compliance
 
-## World Model
-THE ENTIRE SYSTEM IS A WORLD MODEL. It predicts next frame, next state, causal effects, and other agents mental states. Multiple abstraction layers from raw sensorimotor to abstract concepts.
+**Inspiration**: Claude 4's principle-enforcement-at-every-boundary + Qwen's cognitive bus + GLM-5's graph-based governance.
 
-## Safety/Governance
-Value learning from observation by inferring preferences from human behavior. Uncertainty-proportional caution. Corrigibility accepting human correction. Interpretability by design.
+---
 
-## Original Insight
-The world model IS the architecture. There is no separate planner, reasoner, or actor. All cognitive functions are different inference modes of the same underlying world model.
-ENDO3
+## Model Contribution Map
 
-cat > "$RAW/04_xai_grok.md" << 'ENDO4'
-# AGI Architecture Proposal: Veritas - Truth-Seeking Real-Time Causal Architecture
-
-## Memory Architecture
-- Working Memory: Short-term buffer (64K tokens) with attention-based importance ranking
-- Episodic Memory: Experience replay with causal annotations (what caused it and what it caused)
-- Semantic Memory: Causal knowledge graph with confidence-scored cause-effect edges
-- Procedural Memory: Causal policies as if-then rules with learned conditions and effects
-
-## Reasoning/Planning Loop
-Real-time causal inference at 10Hz. Planning uses causal tree search in causal space rather than state space. Forward reasoning (what will happen if) and backward reasoning (what must have happened).
-
-## Learning/Self-Improvement
-Causal discovery from observational and interventional data. Active experimentation to resolve causal uncertainty. Online Bayesian updating for all models. Truth-seeking reward prioritizing true beliefs.
-
-## Safety/Governance
-Truth alignment as foundational principle. Causal transparency with traceable decisions. Uncertainty honesty never concealing doubt. Online monitoring for deception or instrumental behavior.
-
-## Original Insight
-Truth-seeking as primary reward. If the system has true beliefs, it will naturally make better decisions. Truth is the universal instrumental goal - optimize for it directly.
-ENDO4
-
-cat > "$RAW/05_deepseek_v4.md" << 'ENDO5'
-# AGI Architecture Proposal: DeepReason - Mixture of Reasoning Experts
-
-## Memory Architecture
-- Working Memory: Hierarchical context window with expert-specific buffers and shared context bus
-- Episodic Memory: Multi-index event store with sparse retrieval and learned embeddings
-- Semantic Memory: Distributed across expert weights plus shared concept graph
-- Procedural Memory: Expert-specific skill libraries with cross-expert composition rules
-
-## Reasoning/Planning Loop
-Multi-pass inference: first pass uses all experts in parallel (shallow), second pass selects top experts (deep). Planning uses hierarchical decomposition with expert assignment per sub-problem. Reasoning budget controller allocates compute based on problem difficulty.
-
-## Learning/Self-Improvement
-Expert emergence when router detects novel patterns. Expert merging to prevent proliferation. Distillation from ensemble for efficient single-expert inference. Self-play across experts for improvement through debate.
-
-## Original Insight
-Reasoning depth as learned meta-skill. The system learns to dynamically allocate reasoning depth based on problem complexity. Some problems need 2 steps, others need 200 - the system predicts this before starting.
-ENDO5
-
-cat > "$RAW/06_alibaba_qwen.md" << 'ENDO6'
-# AGI Architecture Proposal: Nexus - Distributed Cognitive Bus Architecture
-
-## Memory Architecture
-- Working Memory: Shared high-bandwidth scratchpad accessible via the bus
-- Episodic Memory: Distributed event store with temporal indexing, partitioned by service type
-- Semantic Memory: Federated knowledge base with global ontology service
-- Procedural Memory: Containerized skill packages loaded/unloaded dynamically
-
-## Reasoning/Planning Loop
-Orchestrated by a planning service that decomposes goals into sub-tasks routed to appropriate cognitive services. Results returned with confidence levels. Orchestrator resolves conflicts and merges results.
-
-## Learning/Self-Improvement
-Service-level independent learning. Orchestrator learns better task decomposition over time. Competitive learning where multiple services compete for the same query.
-
-## Tool Use & Action Execution
-Tools are services on the bus with defined APIs. Execution service handles orchestration. Service registry for discovery. Circuit breakers prevent cascade failures.
-
-## Original Insight
-Cognitive microservices: AGI as federation of specialized models, not a monolithic trillion-parameter model. Each cognitive function is an independently scalable service.
-ENDO6
-
-cat > "$RAW/07_meta_llama.md" << 'ENDO7'
-# AGI Architecture Proposal: Polyglot - Open-Source Modular AGI
-
-## Memory Architecture
-- Working Memory: Foundation model native context (128K+) with explicit memory management
-- Episodic Memory: External vector database (FAISS) with learned compression
-- Semantic Memory: Open knowledge graph (Wikidata-aligned) with continual updates
-- Procedural Memory: Downloadable skill packs as neural network modules
-
-## Learning/Self-Improvement
-Community learning through open-source model merging. Self-supervised continued pretraining with privacy preservation. DPO fine-tuning from user preferences. Community-developed skill packs.
-
-## Safety/Governance
-Community moderation through open governance. Transparency requirements for training data and weights. User sovereignty for safety settings. Open red-teaming platform.
-
-## Original Insight
-Community-as-training: When a contributor trains a better memory module, every instance benefits. Improvement is limited not by individual experience but by the entire communitys collective effort.
-ENDO7
-
-cat > "$RAW/08_mistral_large.md" << 'ENDO8'
-# AGI Architecture Proposal: Eclat - Sparse Cognitive Architecture
-
-## Memory Architecture
-- Working Memory: Sparse activation window with learned attention gating
-- Episodic Memory: Hierarchical storage with compressed embeddings and full detail on demand
-- Semantic Memory: Factored knowledge bases with sparse activation per factor
-- Procedural Memory: Lightweight skill triggers activating full modules only when needed
-
-## Reasoning/Planning Loop
-Event-driven: triggered by novelty, uncertainty, or goal-relevance. Most time in low-power monitor mode. Full cognitive resources activate only when triggers fire. Sliding-window receding horizon control for planning.
-
-## Learning/Self-Improvement
-Trigger tuning for sensitivity-specificity tradeoff. Sparse updates updating only relevant parameters. Sleep consolidation for periodic compression. Active forgetting pruning irrelevant knowledge.
-
-## Original Insight
-Intelligence is sparse. The human brain uses about 1% of neurons at any moment. Most AI systems activate all parameters for every query. Learning what to ignore is as important as what to remember.
-ENDO8
-
-echo ""
-echo "ALL FILES CREATED SUCCESSFULLY!"
-ls -la "$DIR/raw_outputs/"
-ls -la "$DIR/"*.md "$DIR/"*.csv
+| Component | Primary Source | Secondary Sources |
+|-----------|:-------------:|:-----------------:|
+| Dual-Stream Reasoning | GPT-4o Cognify | GPT-5 Nova, Claude 4 Aegis |
+| JEPA World Model | Gemini 2.5 Aether | Gemini 2.0 Atlas, GLM-5 CogNet |
+| Constitutional Safety | Claude 4 Aegis | Claude 3.5 Accord, GPT-5 Nova |
+| Cognitive Service Bus | Qwen Nexus | GLM-5 CogNet, Mistral Eclat |
+| Sparse Memory | Mistral Eclat | GPT-5 Nova, GLM-5 CogNet |
+| Autonomous Curriculum | GPT-5 Nova | DeepSeek-V4, Claude 4 Aegis |
+| Causal Reasoning | Grok-3 Veritas | GLM-5 CogNet, DeepSeek-V4 |
+| Multi-Agent Coordination | Qwen Nexus | Llama 4 Polyglot, GLM-5 CogNet |
+| Active Forgetting | Mistral Eclat | GLM-5 CogNet, DeepSeek-V4 |
+| Formal Safety Verification | Claude 4 Aegis | GPT-5 Nova, Grok-3 Veritas |

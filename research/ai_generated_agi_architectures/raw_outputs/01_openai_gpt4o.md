@@ -1,4 +1,4 @@
-# AGI Architecture Proposal: Cognify - Dual-Stream Pipeline
+# AGI Architecture Proposal: Cognify — Dual-Stream Pipeline
 
 ## Memory Architecture
 Working Memory: Differentiable neural cache with 128K token context window.
@@ -6,12 +6,12 @@ Episodic Memory: Compressed experience replay as sparse autoencoder latent codes
 Semantic Memory: Knowledge graph with probabilistic uncertainty-weighted edges.
 Procedural Memory: Skill programs as neural policies via fast-weight retrieval.
 
-## Reasoning and Planning
+## Reasoning & Planning
 Dual-stream: Grok (intuitive, 50ms) and Thinker (deliberative, analytical).
 Thinker activates when Grok confidence is low, novelty detected, or risk > 0.7.
 Planning uses Monte Carlo Tree Search with learned priors from the Grok stream.
 
-## Learning and Self-Improvement
+## Learning & Self-Improvement
 Online RLHF from implicit feedback, self-play via internal simulation,
 model-based RL, skill chaining, and meta-learning for self-optimization.
 
@@ -31,7 +31,7 @@ Interpretability probes monitoring internal representations.
 Differentiable governance: safety is trained end-to-end, not filtered externally.
 
 ## Technical Details
-- Base architecture: Sparse mixture of transformers (1.8T params, 370B active)
+- Base: Sparse mixture of transformers (1.8T params, 370B active)
 - KV-cache: 128K context with RingAttention for beyond-128K scaling
 - Training: 3-stage (pretrain, RLHF, constitutional fine-tuning)
 - Inference: Speculative decoding with 2x throughput
